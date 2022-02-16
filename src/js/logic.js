@@ -4,11 +4,12 @@ const ctx = field.getContext("2d");
 let direction;
 let fraim = 25;
 let score = 0;
-let highScore = 0; 
+
+let head = new Image()
+head.src = "src/images/head-top.png"
 
 let ground = new Image()
 ground.src = "src/images/ground.png"
-
 
 let img = new Image()
 img.src = "src/images/food.png"
@@ -43,15 +44,19 @@ function getRandomInt(max) {
 function keyOptions(e){
     if(e.keyCode === 38 && direction !== "down"){
         direction = "up";
+        head.src = "src/images/head-top.png"
     }
     else if(e.keyCode === 40 && direction !== "up"){
         direction = "down";
+        head.src = "src/images/head-down.png"
     }
     else if(e.keyCode === 37 && direction !== "right"){
         direction = "left";
+        head.src = "src/images/head-left.png"
     }
     else if(e.keyCode === 39 && direction !== "left"){
         direction = "right";
+        head.src = "src/images/head-right.png"
     }
 }
 
@@ -102,8 +107,8 @@ function DrawMain(){
     ctx.drawImage(img, food.x,food.y,25,25);
     
     for(let i = 0; i < snake.length; i++){
-        ctx.fillStyle = i == 0? 'orange' : i % 2 == 0 ? 'yellow' : 'red';
-        ctx.fillRect(snake[i].x, snake[i].y, 25, 25);
+        ctx.fillStyle = i % 2 == 0 ? 'orange' : 'red';
+        i == 0? ctx.drawImage(head, snake[i].x, snake[i].y, 25,25) : ctx.fillRect(snake[i].x, snake[i].y, 25, 25);
     }
 
     ctx.fillStyle = "red";
