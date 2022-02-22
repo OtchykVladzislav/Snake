@@ -42,19 +42,19 @@ function getRandomInt(max) {
 }
 
 function keyOptions(e){
-    if(e.keyCode === 38 || e.keyCode === 87 && direction !== "down"){
+    if((e.keyCode === 38 || e.keyCode === 87) && direction !== "down"){
         direction = "up";
         head.src = "src/images/head-top.png"
     }
-    else if(e.keyCode === 40 || e.keyCode === 83 && direction !== "up"){
+    else if((e.keyCode === 40 || e.keyCode === 83) && direction !== "up"){
         direction = "down";
         head.src = "src/images/head-down.png"
     }
-    else if(e.keyCode === 37 || e.keyCode === 65 && direction !== "right"){
+    else if((e.keyCode === 37 || e.keyCode === 65) && direction !== "right"){
         direction = "left";
         head.src = "src/images/head-left.png"
     }
-    else if(e.keyCode === 39 || e.keyCode === 68 && direction !== "left"){
+    else if((e.keyCode === 39 || e.keyCode === 68) && direction !== "left"){
         direction = "right";
         head.src = "src/images/head-right.png"
     }
